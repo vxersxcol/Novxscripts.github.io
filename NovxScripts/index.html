@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NovxScripts — Home</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovxScripts — #1 Script & Cheapest Shop</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/main.js"></script>
 </head>
-<body class="theme-dark">
+<body>
 
-  <header class="navbar slide-down">
-    <div class="logo">
-      <img src="assets/img/Logo.png" alt="Logo" class="logo-img" />
-      <span class="logo-text neon">NovxScripts</span>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="typewriter">
+      <h2 id="fun-fact">Did you know GitHub can host websites?</h2>
     </div>
-    <nav class="menu">
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="assets/img/Logo.png" alt="NovxScripts Logo" class="logo">
+    <h1 class="title">NovxScripts</h1>
+    <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="discover.html" class="discover-btn">Discover</a>
-      <a href="payment.html">Payments</a>
+      <a href="discover.html">Discover</a>
+      <a href="payment.html">Payment</a>
       <a href="settings.html">Settings</a>
     </nav>
-    <div class="search-container">
-      <input type="text" id="search-bar" placeholder="Search Scripts..." />
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search scripts..." />
       <button id="search-btn">🔍</button>
     </div>
   </header>
 
-  <main class="main-content fade-slide">
-    <h1 class="welcome-text glow">Welcome to NovxScripts</h1>
-    <p class="subtitle">Best #1 Script + Cheapest Shop 🌟</p>
-    <section class="cards">
-      <div class="card glow-card">Coming Soon...</div>
-      <div class="card glow-card">Coming Soon...</div>
-      <div class="card glow-card">Coming Soon...</div>
+  <!-- Main Content -->
+  <main>
+    <section class="hero">
+      <h2>Welcome to NovxScripts</h2>
+      <p>Best #1 Script + Cheapest Shop 🌟</p>
+      <button class="btn-glow" onclick="window.location.href='discover.html'">Discover</button>
     </section>
   </main>
 
-  <footer class="footer">
-    <span class="footer-logo neon">NovxScripts</span>
-    <button class="footer-settings" onclick="window.location.href='settings.html'">⚙️ Full Settings</button>
+  <!-- Footer -->
+  <footer>
+    <p>⚙ <a href="settings.html">View Full Settings</a></p>
   </footer>
 
-  <div id="search-popup" class="popup hidden">
-    <div class="popup-content">
-      <h3>Search Results</h3>
-      <p>Coming Soon...</p>
-      <button id="close-popup">Close</button>
-    </div>
-  </div>
+  <audio id="bgMusic" loop>
+    <source src="assets/audio/bg-music.mp3" type="audio/mpeg">
+  </audio>
 
 </body>
 </html>
