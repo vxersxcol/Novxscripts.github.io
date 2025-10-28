@@ -1,66 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Typewriter Fun Fact
-  const fact = "Did you know GitHub can host websites?";
-  const factEl = document.getElementById("fun-fact");
-  if (factEl) {
-    let i = 0;
-    const type = () => {
-      if (i < fact.length) {
-        factEl.textContent += fact.charAt(i);
-        i++;
-        setTimeout(type, 60);
-      } else {
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 1500);
-      }
-    };
-    type();
+  const app = document.getElementById("app");
+  const loading = document.getElementById("loading");
+  const themeToggle = document.getElementById("themeToggle");
+  const musicEnabled = document.getElementById("musicEnabled");
+  const volumeControl = document.getElementById("volumeControl");
+  const oldTheme = document.getElementById("oldTheme");
+
+  // Theme system
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.body.classList.add(savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      const currentTheme = document.body.classList.contains("light") ? "light" : "dark";
+      localStorage.setItem("theme", currentTheme);
+    });
   }
 
-  // Search popup logic
-  const searchBtn = document.getElementById("search-btn");
-  const searchPopup = document.getElementById("search-popup");
-  const closePopup = document.getElementById("close-popup");
-  if (searchBtn && searchPopup) {
-    searchBtn.onclick = () => {
-      const value = document.getElementById("search-bar").value.trim();
-      if (value) window.location.href = "discover.html";
-      else searchPopup.classList.remove("hidden");
-    };
+  // Old theme toggle
+  if (oldTheme) {
+    oldTheme.checked = localStorage.getItem("oldTheme") === "true";
+    oldTheme.addEventListener("change", () => {
+      localStorage.setItem("oldTheme", oldTheme.checked);
+      alert("Theme will change on reload!");
+    });
   }
-  if (closePopup) closePopup.onclick = () => searchPopup.classList.add("hidden");
+
+  // Music system
+  const bgMusic = document.getElementById("bgMusic");
+  if (bgMusic) {
+    const musicState = localStorage.getItem("musicEnabled") === "true";
+    const savedVolume = parseFloat(localStorage.getItem("musicVolume")) || 0.5;
+    bgMusic.volume = savedVolume;
+    if (musicState) bgMusic.play();
+
+    const musicToggle = document.getElementById("musicToggle");
+    if (musicToggle) {
+      musicToggle.addEventListener("click", () => {
+        if (bgMusic.paused) {
+          bgMusic.play();
+          localStorage.setItem("musicEnabled", true);
+        } else {
+          bgMusic.pause();
+          localStorage.setItem("musicEnabled", false);
+        }
+      });
+    }
+  }
+
+  // Volume control
+  if (volumeControl) {
+    volumeControl.value = localStorage.getItem("musicVolume") || 0.5;
+    volumeControl.addEventListener("input", () => {
+      localStorage.setItem("musicVolume", volumeControl.value);
+    });
+  }
+
+  // Loading animation
+  if (loading && app) {
+    setTimeout(() => {
+      loading.classList.add("hidden");
+      app.classList.remove("hidden");
+    }, 1200);
+  }
 });
-
-// Theme + Settings
-function setTheme(t) {
-  localStorage.setItem("theme", t);
-  document.body.className = `theme-${t}`;
-}
-function toggleMultiTheme() {
-  const multi = !(localStorage.getItem("multiTheme") === "true");
-  localStorage.setItem("multiTheme", multi);
-  alert("Multi-theme " + (multi ? "Enabled" : "Disabled"));
-}
-function toggleMusic() {
-  const audio = document.getElementById("bg-audio");
-  if (audio.paused) audio.play();
-  else audio.pause();
-  localStorage.setItem("musicEnabled", !audio.paused);
-}
-function setVolume(v) {
-  const audio = document.getElementById("bg-audio");
-  if (audio) audio.volume = v;
-  localStorage.setItem("musicVolume", v);
-}
-function resetSettings() {
-  localStorage.clear();
-  alert("Settings reset! Reloading...");
-  location.reload();
-}
-
-// Apply saved theme
-window.onload = () => {
-  const theme = localStorage.getItem("theme") || "dark";
-  document.body.className = `theme-${theme}`;
-};
