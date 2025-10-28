@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading — NovxScripts</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="assets/js/script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading | NovxScripts</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
-<body class="loading-body">
-  <div class="loading-container fade-slide">
-    <img src="assets/img/Logo.png" alt="Logo" class="loading-logo">
-    <h1 class="loading-title neon">Loading NovxScripts...</h1>
-    <div class="loading-bar"><div class="loading-progress"></div></div>
-    <p id="fun-fact" class="typewriter"></p>
+<body>
+  <div id="loadingPage">
+    <h1 class="neon-text">Loading NovxScripts...</h1>
+    <p id="funFact" class="typewriter">Did you know GitHub can host websites?</p>
   </div>
+
+  <script>
+    setTimeout(() => window.location.href = "index.html", 3000);
+  </script>
 </body>
 </html>
-
