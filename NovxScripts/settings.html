@@ -1,51 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Settings — NovxScripts</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="assets/js/script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | NovxScripts</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
-<body class="theme-dark">
-  <header class="navbar">
-    <div class="logo">
-      <img src="assets/img/Logo.png" alt="Logo" class="logo-img">
-      <span class="logo-text neon">NovxScripts</span>
-    </div>
-    <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="payment.html">Payments</a>
-    </nav>
-  </header>
+<body>
+  <div class="settings-container">
+    <h1 class="neon-text">Settings</h1>
 
-  <main class="main-content fade-slide">
-    <h1 class="settings-title neon">⚙️ Settings</h1>
+    <label><input type="checkbox" id="musicEnabled"> Enable Background Music</label><br />
+    <label>Volume: <input type="range" id="volumeControl" min="0" max="1" step="0.01"></label><br />
+    <label><input type="checkbox" id="oldTheme"> Enable Old Theme</label><br />
 
-    <div class="settings-section">
-      <h3>🎨 Theme Options</h3>
-      <button onclick="setTheme('dark')">Dark Theme</button>
-      <button onclick="setTheme('light')">Light Theme</button>
-      <button onclick="setTheme('old')">Old Theme</button>
-      <button onclick="toggleMultiTheme()">Multi Theme</button>
-    </div>
+    <button onclick="window.location.href='index.html'">⬅ Back</button>
+  </div>
 
-    <div class="settings-section">
-      <h3>🔊 Music Settings</h3>
-      <button onclick="toggleMusic()">Toggle Background Music</button>
-      <label for="volume">Volume:</label>
-      <input type="range" id="volume" min="0" max="1" step="0.05" onchange="setVolume(this.value)">
-    </div>
-
-    <div class="settings-section">
-      <h3>✨ Other</h3>
-      <button onclick="resetSettings()">Reset All</button>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <span class="footer-logo neon">NovxScripts</span>
-    <button onclick="window.location.href='settings.html'">⚙️ Full Settings</button>
-  </footer>
+  <script src="../assets/js/script.js"></script>
 </body>
 </html>
