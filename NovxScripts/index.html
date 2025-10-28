@@ -7,54 +7,32 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-  <!-- Loading Screen -->
   <div id="loading">
-    <div class="loader-text">Loading <span class="dots">...</span></div>
+    <div class="loader-text">Loading<span class="dots">...</span></div>
   </div>
 
-  <!-- Main Wrapper -->
   <div id="app" class="hidden">
     <header>
-      <img src="../assets/img/Logo.png" alt="Novx Logo" class="logo" />
-      <h1 class="title">NovxScripts</h1>
+      <img src="../assets/img/Logo.png" alt="Logo" class="logo" />
+      <h1 class="neon-text">NovxScripts</h1>
       <button id="themeToggle">🌓</button>
     </header>
 
     <main>
-      <section class="hero">
-        <h2 class="typewriter">Welcome to NovxScripts</h2>
-        <p>Your next-gen Roblox utility hub — powered by neon.</p>
-        <audio id="bgMusic" src="../assets/audio/bg-music.mp3" loop></audio>
-        <div class="controls">
-          <button id="musicToggle">🎵 Music</button>
-          <button id="settingsBtn">⚙️ Settings</button>
-        </div>
-      </section>
+      <h2 class="typewriter">Welcome to NovxScripts</h2>
+      <p>Your modern Roblox script hub with neon themes and tools!</p>
+
+      <div class="controls">
+        <button onclick="window.location.href='settings.html'">⚙️ Settings</button>
+        <button onclick="window.location.href='payment.html'">💳 Payment</button>
+      </div>
     </main>
 
     <footer>
-      <p>© 2025 NovxScripts | <a href="#" id="openSettings">Settings</a></p>
+      <p id="funFact" class="neon-fact">
+        Fun Fact: Did you know the old website name was Hexvian Shop before the remake? The PNG still exists 😄
+      </p>
     </footer>
-  </div>
-
-  <!-- Settings Modal -->
-  <div id="settingsModal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Music & Theme Settings</h2>
-      <label>
-        <input type="checkbox" id="musicEnabled" /> Enable Background Music
-      </label>
-      <br />
-      <label>Volume:
-        <input type="range" id="volumeControl" min="0" max="1" step="0.01" />
-      </label>
-      <br />
-      <label>
-        <input type="checkbox" id="oldTheme" /> Use Old Theme
-      </label>
-      <br />
-      <button id="closeSettings">Close</button>
-    </div>
   </div>
 
   <script src="../assets/js/script.js"></script>
